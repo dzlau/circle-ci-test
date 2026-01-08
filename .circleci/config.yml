@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   preview_deployment:
     docker:
-      - image: circleci/node:22
+      - image: cimg/node:latest
 
     steps:
       - checkout
