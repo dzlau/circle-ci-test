@@ -3,7 +3,7 @@ jobs:
   preview_deployment:
     docker:
       - image: circleci/node:latest
-   
+
     steps:
       - checkout
       - run:
@@ -32,8 +32,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install pnpm
+          command: npm install -g
+      - run:
           name: Install Vercel CLI
-          command: npm install --global vercel@latest
+          command: pnpm install --global vercel@latest
       - run:
           name: Pull Vercel Environment Information
           command: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
