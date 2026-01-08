@@ -53,4 +53,4 @@ workflows:
       - production_deployment:
           filters:
             branches:
-              only: /main/
+              only: /main/vercel
