@@ -7,11 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install pnpm
-          command: sudo npm install -g pnpm && pnpm setup
-      - run:
           name: Install Vercel CLI
-          command: sudo pnpm install --global vercel@latest
+          command: sudo npm install --global vercel@latest
       - run:
           name: "echo an env var that is part of our project"
           command: |
