@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:latest
     environment:
       VERCEL_ORG_ID: $VERCEL_ORG_ID
-      VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
+      VERCEL_PROJECT_ID: prj_upNN2wvOa524FOuNkXE9TMjxgZvD
     steps:
       - checkout
       - run:
