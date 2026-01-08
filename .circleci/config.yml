@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   preview_deployment:
     docker:
-      - image: cimg/node:latest
+      - image: cimg/node:22
 
     steps:
       - checkout
