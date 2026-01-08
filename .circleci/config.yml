@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   preview_deployment:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:22
 
     steps:
       - checkout
