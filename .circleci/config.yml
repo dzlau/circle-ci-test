@@ -2,18 +2,20 @@ version: 2.1
 jobs:
   preview_deployment:
     docker:
-      - image: circleci/node:latest
-    environment:
-      VERCEL_ORG_ID: $VERCEL_ORG_ID
-      VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
+      - image: cimg/node:lts
+
     steps:
       - checkout
       - run:
           name: Install Vercel CLI
-          command: npm install --global vercel@latest
+          command: sudo npm install --global vercel@latest
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $VERCEL_PROJECT_ID # this env var must be set within the project
       - run:
           name: Pull Vercel Environment Information
-          command: vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+          command: echo $VERCEL_TOKEN && vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
       - run:
           name: Build Project Artifacts
           command: vercel build --token=$VERCEL_TOKEN
@@ -23,12 +25,15 @@ jobs:
 
   production_deployment:
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:lts
     environment:
       VERCEL_ORG_ID: $VERCEL_ORG_ID
       VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID
     steps:
       - checkout
+      - run:
+          name: Install pnpm
+          command: npm install -g
       - run:
           name: Install Vercel CLI
           command: npm install --global vercel@latest
@@ -53,4 +58,4 @@ workflows:
       - production_deployment:
           filters:
             branches:
-              only: /main/
+              only: /main/vercel
