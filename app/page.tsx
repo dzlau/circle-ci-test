@@ -17,7 +17,7 @@ export default function Component() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Sleep Like Royalty
+                    Sleep Like a king
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                     Experience the ultimate comfort with our premium mattresses. Designed for perfect sleep, every night.
